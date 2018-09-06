@@ -1,5 +1,6 @@
 import React from 'react';
 import NavMenu from './NavMenu/NavMenu';
+import Footer from './Footer/Footer';
 
 export default props => (
   <React.Fragment>
@@ -10,10 +11,11 @@ export default props => (
         </div>
       </div>
     </div>
-    <div className="container">
+    <div className="container px-0">
       <div className="row">
         {props.children}
       </div>
     </div>
+    <Footer />
   </React.Fragment>
 );
