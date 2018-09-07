@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace HomeFoodie.Controllers
 {
@@ -24,6 +26,15 @@ namespace HomeFoodie.Controllers
                 TemperatureC = rng.Next(-20, 55),
                 Summary = Summaries[rng.Next(Summaries.Length)]
             });
+        }
+
+        [HttpGet("[action]")]
+        public JToken SearchFood(string query) {
+            var results = new List<dynamic>();
+
+            //TODO: get results
+
+            return JsonConvert.SerializeObject(results);
         }
 
         public class WeatherForecast

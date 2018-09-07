@@ -7,4 +7,4 @@ require('babel-register')({
 
 const prerenderer = require('./index').default;
 
-module.exports = prerenderer
+module.exports = prerenderer;

@@ -10,8 +10,8 @@ namespace HomeFoodie.Controllers
         //TODO: get this info from the SEO Module
         [
             Route("/"),
-            Route("/fetchdata"),
-            Route("/counter")
+            Route("/search"),
+            Route("/plate")
         ]
         public async Task<IActionResult> Index([FromServices] ISpaPrerenderer prerenderer)
         {
