@@ -9,6 +9,7 @@
     "babel-register": "^6.26.0",
     "domain-task": "^3.0.3",
     "ignore-styles": "^5.0.1",
+    "query-string": "^6.1.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",

@@ -10,9 +10,11 @@ namespace HomeFoodie
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IHostingEnvironment _env;
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
             Configuration = configuration;
+            _env = env;
         }
 
         public IConfiguration Configuration { get; }
@@ -29,7 +31,18 @@ namespace HomeFoodie
             });
 
             //this is needed for SSR
-            services.AddNodeServices();
+            if (_env.IsDevelopment())
+            {
+                services.AddNodeServices(options =>
+                {
+                    options.DebuggingPort = 9222;
+                    options.LaunchWithDebugging = true;
+                });
+            }
+            else
+            {
+                services.AddNodeServices();
+            }
             services.AddSpaPrerenderer();
         }
 
@@ -52,9 +65,9 @@ namespace HomeFoodie
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapSpaFallbackRoute(
+                    name: "spa-fallback",
+                    defaults: new {controller = "Home", action = "Index"});
             });
 
             app.UseSpa(spa =>

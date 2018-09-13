@@ -30,7 +30,12 @@ export default class NavMenu extends React.Component {
     return (
       <Navbar color="dark" dark>
         <NavbarBrand href="/" className="mr-auto">HomeFoodie</NavbarBrand>
-        <NavbarToggler onClick={this.toggleNavbar} className="mr-2"/>
+        <a href="/menu" onClick={(ev) => {
+          ev.preventDefault();
+          this.toggleNavbar();
+        }}>
+          <NavbarToggler onClick={() => { }} className="mr-2" />
+        </a>
         <Collapse isOpen={!this.state.collapsed} navbar>
           <Nav navbar>
             <NavItem>

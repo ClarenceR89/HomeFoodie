@@ -10,7 +10,7 @@ class Crave extends React.Component {
   }
 
   fetchData(query) {
-    this.props.requestFoodItems(query);
+    this.props.setQueryParams(query);
   }
 
   render() {

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.Prerendering;
@@ -11,11 +12,15 @@ namespace HomeFoodie.Controllers
         [
             Route("/"),
             Route("/search"),
-            Route("/plate")
+            Route("/meal/{id}"),
+            Route("/menu")
         ]
         public async Task<IActionResult> Index([FromServices] ISpaPrerenderer prerenderer)
         {
-            var initialState = JsonConvert.SerializeObject(new { counter = new { count = 99 } });
+            var initialState = JsonConvert.SerializeObject(new
+            {
+                counter = new { count = 99 }
+            });
 
             //Note: Pass any custom data in through here
 

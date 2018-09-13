@@ -18,7 +18,7 @@ export default class SearchInput extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form action={"search"} onSubmit={this.handleSubmit}>
                 <div className="input-group mb-3">
                     <input
                         id="query"
